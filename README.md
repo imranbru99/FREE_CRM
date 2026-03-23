@@ -1,63 +1,69 @@
-<<<<<<< HEAD
-# FREE_CRM
-A professional, glassmorphism-based CRM built with Laravel.
-=======
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 FREE_CRM
+**The Ultimate Open-Source, Glassmorphism-based CRM for Modern Professionals.**
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel 13](https://img.shields.io/badge/Laravel-13-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-## About Laravel
+FREE_CRM is a high-performance, aesthetically driven relationship management tool built with the **TALL stack** (Laravel 13, Tailwind, Alpine.js). It features an "Ultra Pro" glassmorphism dashboard designed for speed, clarity, and a premium user experience—completely free and open-source.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Pro Features (100% Free)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🎨 Visual Experience
+* **Ultra Pro Glassmorphism:** A cutting-edge interface with frosted-glass sidebars, refined typography, and smooth micro-interactions.
+* **Dynamic Dark Mode:** Seamless, persistent theme switching (Auto/Light/Dark) using Tailwind CSS and LocalStorage.
+* **Responsive Architecture:** Fully optimized for mobile, tablet, and ultra-wide desktop monitors.
 
-## Learning Laravel
+### 📈 Sales & Lead Management
+* **Visual Kanban Pipeline:** Drag-and-drop leads across different stages (Prospect, Negotiation, Closed) for better workflow visualization.
+* **360° Customer View:** Detailed profiles including contact history, linked tasks, and personal notes.
+* **Activity Timeline:** A chronological audit trail of every interaction with a client.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### ⚙️ Powerful Automations
+* **Smart Task Pipeline:** Automated overdue alerts, status badges, and priority-based sorting.
+* **Bulk Data Tools:** Import and export your leads/customers via CSV or Excel using `maatwebsite/excel`.
+* **Automated Notifications:** Built-in system for email alerts and browser-based notifications for upcoming deadlines.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔐 Security & Infrastructure
+* **Role-Based Access Control (RBAC):** Fine-grained permissions (Admin, Manager, Sales) powered by **Spatie**.
+* **Activity Logs:** Full audit trails to track which user modified which record and when.
+* **RESTful API:** Ready-to-use API endpoints for mobile app integration or third-party tools.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## 🛠️ Tech Stack
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+| Component | Technology |
+| :--- | :--- |
+| **Backend** | [Laravel 13](https://laravel.com/) (PHP 8.2+) |
+| **Frontend** | [Tailwind CSS](https://tailwindcss.com/) & [Alpine.js](https://alpinejs.dev/) |
+| **Icons** | [FontAwesome 6.6](https://fontawesome.com/) & [Heroicons](https://heroicons.com/) |
+| **Permissions** | [Spatie Laravel-Permission](https://spatie.be/docs/laravel-permission) |
+| **Charts** | [Chart.js](https://www.chartjs.org/) (for Dashboard Analytics) |
+| **Database** | MySQL / PostgreSQL / SQLite |
 
+---
+
+## 🚀 Quick Start Guide
+
+### 1. Prerequisites
+Ensure you have **PHP 8.2+**, **Composer**, and **Node.js/NPM** installed on your system.
+
+### 2. Installation
 ```bash
-composer require laravel/boost --dev
+# Clone the repository
+git clone git@github.com:imranbru99/FREE_CRM.git
+cd FREE_CRM
 
-php artisan boost:install
-```
+# Install PHP dependencies
+composer install
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+# Install JS dependencies & Compile assets
+npm install
+npm run build
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> 2658938 (Initial commit: FREE_CRM Ultra Pro Dashboard)
+# Setup Environment
+cp .env.example .env
+php artisan key:generate

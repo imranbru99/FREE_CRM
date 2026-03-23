@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'System Overview')
 
 @section('content')
@@ -48,15 +48,15 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     <div class="lg:col-span-2 glass-panel rounded-3xl overflow-hidden shadow-sm">
-        <div class="p-6 border-b border-slate-100 dark:border-white/5 flex justify-between items-center">
+        <div class="p-6 border-b border-slate-100 flex justify-between items-center">
             <h3 class="font-bold">Recent Leads</h3>
             <a href="{{ route('admin.leads.index') }}" class="text-xs text-blue-500 font-bold uppercase tracking-wider hover:underline">View All</a>
         </div>
         <div class="overflow-x-auto">
             <table class="w-full text-left">
-                <tbody class="divide-y divide-slate-100 dark:divide-white/5">
+                <tbody class="divide-y divide-slate-100">
                     @forelse($recentLeads as $lead)
-                    <tr class="hover:bg-slate-50/50 dark:hover:bg-white/5 transition-colors">
+                    <tr class="hover:bg-slate-50/50 transition-colors">
                         <td class="px-6 py-4">
                             <span class="font-medium text-sm">{{ $lead->name }}</span>
                             <p class="text-xs text-slate-400">{{ $lead->source }}</p>
@@ -93,7 +93,7 @@
             <div class="flex gap-4 relative">
                 <div class="flex flex-col items-center">
                     <div class="w-2 h-2 rounded-full {{ $task->due_date < now() ? 'bg-rose-500' : 'bg-blue-500' }}"></div>
-                    <div class="w-px h-full bg-slate-100 dark:bg-white/10 mt-2"></div>
+                    <div class="w-px h-full bg-slate-100 mt-2"></div>
                 </div>
                 <div class="pb-6">
                     <p class="text-xs font-bold text-slate-400 uppercase tracking-tighter">{{ $task->due_date->format('M d, Y') }}</p>

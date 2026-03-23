@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'Lead Pipeline')
 
 @section('content')
@@ -14,7 +14,7 @@
 
 <div class="glass-panel rounded-3xl overflow-hidden">
     <table class="w-full text-left">
-        <thead class="bg-slate-50/50 dark:bg-white/5 border-b border-slate-100 dark:border-white/5">
+        <thead class="bg-slate-50/50 border-b border-slate-100">
             <tr>
                 <th class="px-6 py-4 text-xs font-bold uppercase text-slate-400">Lead Info</th>
                 <th class="px-6 py-4 text-xs font-bold uppercase text-slate-400">Source</th>
@@ -22,11 +22,11 @@
                 <th class="px-6 py-4 text-xs font-bold uppercase text-slate-400 text-right">Actions</th>
             </tr>
         </thead>
-        <tbody class="divide-y divide-slate-100 dark:divide-white/5">
+        <tbody class="divide-y divide-slate-100">
             @foreach($leads as $lead)
-            <tr class="group hover:bg-slate-50/50 dark:hover:bg-white/5 transition-colors">
+            <tr class="group hover:bg-slate-50/50 transition-colors">
                 <td class="px-6 py-4">
-                    <div class="font-semibold text-slate-900 dark:text-white">{{ $lead->name }}</div>
+                    <div class="font-semibold text-slate-900">{{ $lead->name }}</div>
                     <div class="text-xs text-slate-400">{{ $lead->email }}</div>
                 </td>
                 <td class="px-6 py-4 text-sm text-slate-500">{{ $lead->source }}</td>
@@ -56,6 +56,6 @@
             @endforeach
         </tbody>
     </table>
-    <div class="p-4 border-t border-slate-100 dark:border-white/5">{{ $leads->links() }}</div>
+    <div class="p-4 border-t border-slate-100">{{ $leads->links() }}</div>
 </div>
 @endsection

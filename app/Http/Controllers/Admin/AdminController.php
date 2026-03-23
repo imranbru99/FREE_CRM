@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
-class ProfileController extends Controller
+class AdminController extends Controller
 {
     public function edit()
     {

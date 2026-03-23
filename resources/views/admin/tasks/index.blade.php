@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'Task Management')
 
 @section('content')
@@ -31,7 +31,7 @@
     <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
             <thead>
-                <tr class="bg-slate-50/50 dark:bg-white/5 border-b border-slate-100 dark:border-white/5">
+                <tr class="bg-slate-50/50 border-b border-slate-100">
                     <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">Task Details</th>
                     <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">Related To</th>
                     <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">Due Date</th>
@@ -39,12 +39,12 @@
                     <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400 text-right">Actions</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-slate-100 dark:divide-white/5">
+            <tbody class="divide-y divide-slate-100">
                 @forelse($tasks as $task)
-                <tr class="hover:bg-slate-50/50 dark:hover:bg-white/5 transition-colors group">
+                <tr class="hover:bg-slate-50/50 transition-colors group">
                     <td class="px-6 py-4">
                         <div class="flex flex-col">
-                            <span class="font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                            <span class="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
                                 {{ $task->title }}
                             </span>
                             @if($task->description)
@@ -55,10 +55,10 @@
                     <td class="px-6 py-4">
                         @if($task->customer)
                             <div class="flex items-center gap-2">
-                                <div class="w-7 h-7 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-[10px] font-bold text-slate-500">
+                                <div class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500">
                                     {{ substr($task->customer->name, 0, 1) }}
                                 </div>
-                                <span class="text-sm font-medium text-slate-600 dark:text-slate-300">
+                                <span class="text-sm font-medium text-slate-600">
                                     {{ $task->customer->name }}
                                 </span>
                             </div>
@@ -71,7 +71,7 @@
                             @php
                                 $isOverdue = $task->due_date->isPast() && $task->status !== 'completed';
                             @endphp
-                            <span class="text-sm font-medium {{ $isOverdue ? 'text-rose-500' : 'text-slate-600 dark:text-slate-300' }}">
+                            <span class="text-sm font-medium {{ $isOverdue ? 'text-rose-500' : 'text-slate-600' }}">
                                 {{ $task->due_date->format('M d, Y') }}
                             </span>
                             <span class="text-[10px] text-slate-400">{{ $task->due_date->diffForHumans() }}</span>
@@ -91,12 +91,12 @@
                     </td>
                     <td class="px-6 py-4 text-right">
                         <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <a href="{{ route('admin.tasks.edit', $task) }}" class="p-2 text-slate-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-all">
+                            <a href="{{ route('admin.tasks.edit', $task) }}" class="p-2 text-slate-400 hover:text-blue-500 hover:bg-blue-50 rounded-lg transition-all">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                             <form action="{{ route('admin.tasks.destroy', $task) }}" method="POST" onsubmit="return confirm('Archive this task?')">
                                 @csrf @method('DELETE')
-                                <button class="p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-500/10 rounded-lg transition-all">
+                                <button class="p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-all">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </form>
@@ -107,10 +107,10 @@
                 <tr>
                     <td colspan="5" class="px-6 py-20 text-center">
                         <div class="flex flex-col items-center">
-                            <div class="w-16 h-16 bg-slate-100 dark:bg-white/5 rounded-full flex items-center justify-center text-slate-300 mb-4">
+                            <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-300 mb-4">
                                 <i class="fa-solid fa-list-check text-2xl"></i>
                             </div>
-                            <h3 class="text-slate-900 dark:text-white font-bold">No tasks found</h3>
+                            <h3 class="text-slate-900 font-bold">No tasks found</h3>
                             <p class="text-slate-500 text-sm max-w-xs mx-auto">It looks like you're all caught up. Start by creating a new task for your pipeline.</p>
                             <a href="{{ route('admin.tasks.create') }}" class="mt-4 text-blue-500 font-bold text-sm hover:underline">Create your first task</a>
                         </div>
@@ -122,7 +122,7 @@
     </div>
 
     @if($tasks->hasPages())
-    <div class="p-6 border-t border-slate-100 dark:border-white/5">
+    <div class="p-6 border-t border-slate-100">
         {{ $tasks->links() }}
     </div>
     @endif

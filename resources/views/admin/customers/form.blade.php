@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', isset($customer) ? 'Edit Customer' : 'New Customer')
 
 @section('content')
@@ -19,32 +19,32 @@
                 <div class="space-y-2">
                     <label class="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
                     <input type="text" name="name" value="{{ old('name', $customer->name ?? '') }}"
-                           class="w-full px-4 py-3 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl focus:ring-2 ring-blue-500/20 outline-none transition-all" required>
+                           class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 ring-blue-500/20 outline-none transition-all" required>
                 </div>
 
                 <div class="space-y-2">
                     <label class="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Email Address</label>
                     <input type="email" name="email" value="{{ old('email', $customer->email ?? '') }}"
-                           class="w-full px-4 py-3 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl focus:ring-2 ring-blue-500/20 outline-none transition-all" required>
+                           class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 ring-blue-500/20 outline-none transition-all" required>
                 </div>
 
                 <div class="space-y-2">
                     <label class="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
                     <input type="text" name="phone" value="{{ old('phone', $customer->phone ?? '') }}"
-                           class="w-full px-4 py-3 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl focus:ring-2 ring-blue-500/20 outline-none transition-all">
+                           class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 ring-blue-500/20 outline-none transition-all">
                 </div>
 
                 <div class="space-y-2">
                     <label class="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Company</label>
                     <input type="text" name="company" value="{{ old('company', $customer->company ?? '') }}"
-                           class="w-full px-4 py-3 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl focus:ring-2 ring-blue-500/20 outline-none transition-all">
+                           class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 ring-blue-500/20 outline-none transition-all">
                 </div>
             </div>
 
             <div class="space-y-2">
                 <label class="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Primary Address</label>
                 <textarea name="address" rows="3"
-                          class="w-full px-4 py-3 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl focus:ring-2 ring-blue-500/20 outline-none transition-all">{{ old('address', $customer->address ?? '') }}</textarea>
+                          class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 ring-blue-500/20 outline-none transition-all">{{ old('address', $customer->address ?? '') }}</textarea>
             </div>
 
             <div class="pt-4">

@@ -1,41 +1,40 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\LeadController;
-use App\Http\Controllers\Admin\TaskController;
-use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\{DashboardController, CustomerController, LeadController, TaskController, AdminController};
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', fn() => redirect('/login'));
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-
-    // Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-    // Admin Group
-    Route::prefix('admin')->as('admin.')->group(function () {
-
-    // Profile Management
+Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-        // Customers
-        Route::middleware(['role:admin|manager', 'permission:view customers'])->group(function () {
-            Route::resource('customers', CustomerController::class);
-        });
+Route::middleware('auth')->group(function () {
 
-        // Leads
-        Route::middleware(['role:admin|manager', 'permission:view leads'])->group(function () {
-            Route::resource('leads', LeadController::class);
-        });
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-        // Tasks
-        Route::middleware(['role:admin|manager|sales', 'permission:view tasks'])->group(function () {
-            Route::resource('tasks', TaskController::class);
-        });
 
+    // Protected by roles
+    Route::middleware('role:admin|manager')->group(function () {
+        // Profile Management
+        Route::get('/profile', [AdminController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [AdminController::class, 'update'])->name('profile.update');
+        Route::put('/profile/password', [AdminController::class, 'updatePassword'])->name('profile.password');
+        Route::resource('admin/customers', CustomerController::class)->names('admin.customers');
+        Route::resource('admin/leads', LeadController::class)->names('admin.leads');
+    });
+
+    Route::middleware('role:admin|manager|sales')->group(function () {
+        Route::resource('admin/tasks', TaskController::class)->names('admin.tasks');
     });
 });
+
+require __DIR__.'/auth.php';
